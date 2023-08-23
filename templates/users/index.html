@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% for user in all_users %}
+<div class="user">
+    <div class="content">
+
+        <div class="user_id">ID:{{user.id}}
+            <div class="full_name"><a href="/users/{{user.id}}"> {{user.first_name}} {{user.last_name}}</a></p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="buttons">
+
+        <form class="delete-form" action="/users/{{user.id}}/delete" method="POST">
+        <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button>
+
+        </form>
+
+
+    </div>
+</div>  
+{% endfor %}
+{% endblock %}
